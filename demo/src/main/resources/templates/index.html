@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details</title>
+
+    <style>
+        /* Your CSS styles go here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+         .search-button-container {
+            text-align: right; /* Adjust this to "left" if you want it on the left side */
+            margin-bottom: 20px; /* Add space below the button */
+        }
+        .search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+         h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Task Details</h1>
+<div class="search-button-container">
+    <button class="search-button" onclick="searchById()">Search by ID</button>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Task</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.task}"></td>
+        <td th:text="${task.description}"></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    function searchById() {
+
+        alert("Search by ID button clicked!");
+    }
+</script>
+</body>
+</html>
